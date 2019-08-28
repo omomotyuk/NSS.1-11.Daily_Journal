@@ -1,0 +1,55 @@
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* The CSS box-sizing property allows us to include the padding and border in an element's total width and height. */
+html {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+}
+
+.input-form {
+    border: 1px solid black;
+    border-top-left-radius: .5em;
+    border-top-right-radius: .5em;
+    border-bottom-left-radius: .5em;
+    border-bottom-right-radius: .5em;
+    
+    background-color: aquamarine;
+}
+
+ .input-form__fieldset {
+    display: flex;
+    /* width: 100%; - goes out of border */
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid black;
+    border-top-left-radius: .3em;
+    border-top-right-radius: .3em;
+    border-bottom-left-radius: .3em;
+    border-bottom-right-radius: .3em;
+
+    padding: .5em;
+    margin: .5em;
+
+    background-color: bisque;
+}
+
+.input {
+ /*   flex: 0 0 1; */
+}
+
+button {
+    border: 1px solid red;
+    border-top-left-radius: .2em;
+    border-top-right-radius: .2em;
+    border-bottom-left-radius: .2em;
+    border-bottom-right-radius: .2em;
+}

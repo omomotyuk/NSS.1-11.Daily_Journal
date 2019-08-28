@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daily Journal</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+
+<body>
+
+
+    <h1>Daily Journal</h1>
+
+    <form class="input-form" action="">
+
+        <!-- Date input section -->
+        <fieldset class="input-form__fieldset">
+            <label class="input">Date of entry:</label>
+            <input class="input" type="date" name="dateOfEntry" id="dateOfEntry">
+        </fieldset>
+
+        <!-- Covered concepts input section -->
+        <fieldset class="input-form__fieldset">
+            <label class="input">Concepts covered:</label>
+            <input class="input" type="text">
+        </fieldset>
+
+        <!-- Journal entry input section -->
+        <fieldset class="input-form__fieldset">
+            <label class="input">Journal entry</label>
+            <textarea class="input"></textarea>
+        </fieldset>
+
+        <!-- Mood input section -->
+        <fieldset class="input-form__fieldset">
+            <label class="input">Mood for the day:</label>
+            <select class="input">
+                <option value="happy">Happy</option>
+                <option value="fine">Fine</option>
+                <option value="sad">Sad</option>
+            </select>
+        </fieldset>
+
+        <!-- Submit button section -->
+        <fieldset class="input-form__fieldset">
+            <button class="input">Record Journal Entry</button>
+        </fieldset>
+
+    </form>
+
+    <script src="src/select.js"></script>
+
+
+</body>
+
+</html>
