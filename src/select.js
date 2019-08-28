@@ -9,4 +9,3 @@ for( i = 0; i < selectItems.length; i++ ) {
 	selectOption.innerHTML = selectItems[ i ];
 	selectElement[0].appendChild( selectOption );
 }
-
