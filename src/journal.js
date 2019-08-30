@@ -53,3 +53,30 @@ journalEntries.push( secondEntry );
 journalEntries.push( thirdEntry );
 
 console.log( "Journal Entries: ", journalEntries );
+
+/*
+    Purpose: To create, and return, a string template that
+    represents a single journal entry object as HTML
+
+    Arguments: journalEntry (object)
+*/
+const createJournalEntryComponent = ( journalEntry ) {
+    // Create your own HTML structure for a journal entry
+    return `
+    `
+}
+
+/*
+Now write a function whose reponsibility is to iterate your array of journal entries and add them to the DOM.
+src/scripts/journal.js
+
+    Purpose: To render all journal entries to the DOM
+    Arguments: entries (array of objects)
+*/
+
+const renderJournalEntries = (entries) => {
+
+}
+
+// Invoke the render function
+renderJournalEntries(journalEntries)
