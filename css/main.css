@@ -54,3 +54,17 @@ button {
     border-bottom-right-radius: .2em;
 }
 
+#entryLog {
+    display: flex;
+    flex-flow: column;
+}
+
+.log-item {
+    border: 1px solid black;
+    border-radius: .2em;
+
+    background-color: lightsteelblue;
+
+    margin: .9em;
+    padding: .7em;
+}
