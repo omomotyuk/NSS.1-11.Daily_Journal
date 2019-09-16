@@ -10,7 +10,7 @@ const API = {
             .then(response => response.json())
     },
 
-    editEntries: ( entry ) => {
+    saveJournalEntry: ( entry ) => {
         //const donutUpdateObject = { name: document.querySelector("#donutName").value }
         return fetch(`http://localhost:3000/entries`, {
             method: "POST",

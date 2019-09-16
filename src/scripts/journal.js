@@ -6,6 +6,7 @@ import selectElement from "./select.js"
 import createJournalEntryComponent from "./entryComponent.js"
 import API from "./data.js"
 import sectionElement from "./entriesDOM.js"
+import validateInputString from "./validateInputString.js"
 
 //
 /*
@@ -27,18 +28,30 @@ let newEntry = ( date, title, content, mood ) => {
 
 //
 const getValue = ( id ) => {
-    return document.querySelector(`#${id}`).value 
+    return validateInputString( document.querySelector(`#${id}`).value )
 }
 
-let inputElement = document.querySelector( "#input-form__button" )
+//
+const validEntry = ( entry ) => {
+    let value = true
+    for( const data of Object.values( entry) ) {
+        if( !data ) value = false
+    }
+    return value
+}
 
 //
+let inputElement = document.querySelector( "#input-form__button" )
+
 inputElement.addEventListener( "click", (event) => {
     let entry = newEntry( getValue('dateOfEntry'), getValue('coveredConcepts'), getValue('journalEntry'), getValue('mood') )
 
     console.log( "entry: ", entry )
 
-    API.editEntries( entry )
-
-    sectionElement.innerHTML += createJournalEntryComponent( entry );
+    if( validEntry( entry ) ) { 
+        API.saveJournalEntry( entry )
+        sectionElement.innerHTML += createJournalEntryComponent( entry )    
+    } else {
+        console.log( "input form(s) empty" )
+    }
 })
