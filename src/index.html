@@ -16,42 +16,46 @@
     <h1>Daily Journal</h1>
 
     <!-- -->
-    <form class="input-form" action="">
+    <!-- <form class="input-form" action=""> -->
+    <section class="input-form">
 
         <!-- Date input section -->
         <fieldset class="input-form__fieldset">
             <label class="input">Date of entry:</label>
-            <input class="input" type="date" name="dateOfEntry" id="dateOfEntry">
+            <input class="input" type="date" name="dateOfEntry" id="dateOfEntry" placeholder="2019-09-13">
         </fieldset>
 
         <!-- Covered concepts input section -->
         <fieldset class="input-form__fieldset">
             <label class="input">Concepts covered:</label>
-            <input class="input" type="text">
+            <input class="input" type="text" id="coveredConcepts" placeholder="Concepts covered">
         </fieldset>
 
         <!-- Journal entry input section -->
         <fieldset class="input-form__fieldset">
             <label class="input">Journal entry</label>
-            <textarea class="input"></textarea>
+            <textarea class="input" id="journalEntry"></textarea>
         </fieldset>
 
         <!-- Mood input section -->
         <fieldset class="input-form__fieldset">
             <label class="input">Mood for the day:</label>
-            <select class="input">
+            <select class="input" id="mood">
+                <!-- 
                 <option value="happy">Happy</option>
                 <option value="fine">Fine</option>
                 <option value="sad">Sad</option>
+                -->
             </select>
         </fieldset>
 
         <!-- Submit button section -->
         <fieldset class="input-form__fieldset">
-            <button class="input">Record Journal Entry</button>
+            <button class="input" id="input-form__button">Record Journal Entry</button>
         </fieldset>
 
-    </form>
+    </section>
+    <!-- </form> -->
 
     <!-- -->
     <section id="entryLog"></section>

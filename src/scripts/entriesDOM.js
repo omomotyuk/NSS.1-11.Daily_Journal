@@ -7,6 +7,7 @@ import createJournalEntryComponent from "./entryComponent.js"
 
 //
 const sectionElement = document.getElementById('entryLog');
+sectionElement.innerHTML = "";
 
 //
 API.getJournalEntries().then( data => {
@@ -16,4 +17,3 @@ API.getJournalEntries().then( data => {
 })
 
 export default sectionElement
-

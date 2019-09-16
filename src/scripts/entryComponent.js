@@ -1,10 +1,8 @@
 /*
-//
-*/
-/*
     Purpose: To create, and return, a string template that represents a single journal entry object as HTML
     Arguments: journalEntry (object)
 */
+
 const createJournalEntryComponent = ( journalEntry ) => {
     // Create your own HTML structure for a journal entry
     return `
