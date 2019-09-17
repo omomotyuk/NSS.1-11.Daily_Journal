@@ -6,14 +6,12 @@ import API from "./data.js"
 import createJournalEntryComponent from "./entryComponent.js"
 
 //
-const sectionElement = document.getElementById('entryLog');
-sectionElement.innerHTML = "";
+const entriesDOM = ( outputElement ) => {
+    API.getJournalEntries( outputElement ).then( data => {
+        for( let i = 0; i < data.length; i++ ) {
+            outputElement.innerHTML += createJournalEntryComponent( data[i] );
+        }
+    })
+}
 
-//
-API.getJournalEntries().then( data => {
-    for( let i = 0; i < data.length; i++ ) {
-        sectionElement.innerHTML += createJournalEntryComponent( data[i] );
-    }
-})
-
-export default sectionElement
+export default entriesDOM
