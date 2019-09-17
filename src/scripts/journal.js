@@ -10,14 +10,8 @@ import validateInputString from "./validateInputString.js"
 import moodFilter from "./moodFilter.js"
 import entriesDOM from "./entriesDOM.js"
 import editJournalEntry from "./editJournalEntry.js"
+
 //
-/*
-"id": "1",
-"date": "2019.08.27",
-"title": "Array methods",
-"content": "We learned about array methods, but only forEach made sense.",
-"mood": "good"
-*/
 let newEntry = ( date, title, content, mood, id ) => {
     const entry = {
         "date": date,
@@ -31,7 +25,6 @@ let newEntry = ( date, title, content, mood, id ) => {
 
 //
 const getValue = ( id ) => {
-
     if( id === 'input-form__button' ) {
         return  document.querySelector(`#${id}`).value
     } else {
@@ -49,6 +42,11 @@ const validEntry = ( entry ) => {
 }
 
 //
+const clearEntryForm = () => {
+    editJournalEntry( newEntry( "","","","","" ) )
+}
+
+//
 selectElement( selectItems() )
 
 //
@@ -62,24 +60,29 @@ inputElement.addEventListener( "click", (event) => {
     if( validEntry( entry ) ) { 
         API.saveJournalEntry( entry ).then( () => {
             entriesDOM( "" )
-            editJournalEntry( newEntry( "","","","","" ) )
+            clearEntryForm()
         })
-        //document.querySelector( "#input-form__button" ).value =  ''
     } else {
         console.log( "input form(s) empty" )
     }
 })
 
 //
-const radioButtonLabels = selectItems()
-//console.log( "radioButtonLabels:", radioButtonLabels )
-
-radioButtonLabels.forEach( label => {
+selectItems().forEach( label => {
     const radioButton = document.querySelector( `#${label.toLowerCase()}` )
     radioButton.addEventListener( "click", (event) => {
         entriesDOM( label )
     })
 })
+
+document.querySelector( '.search-text' ).addEventListener( "keypress", event => {
+    API.getJournalEntries( "" ).then( data => {
+        entriesDOM ( data.filter( entry => entry.content.includes( event.target.value ) ) )
+    })
+
+})
+
+
 
 //
 entriesDOM( "" )

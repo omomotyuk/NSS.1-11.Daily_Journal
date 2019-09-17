@@ -16,8 +16,6 @@ const entriesDOM = ( label ) => {
         })
     }
 
-    //console.log( "label: ",label )
-
     const outputElement = document.getElementById('entryLog')
     outputElement.innerHTML = ""
 
@@ -30,7 +28,6 @@ const entriesDOM = ( label ) => {
             //
             const deleteButton = outputElement.querySelector( `#delete-id-${entry.id}` )
             deleteButton.addEventListener( "click", event => {
-                //console.log( "delete id: ",entry.id )
                 API.deleteJournalEntry( entry )
                 event.target.parentNode.parentNode.removeChild( event.target.parentNode )
             })
@@ -38,18 +35,18 @@ const entriesDOM = ( label ) => {
             //
             const editButton = outputElement.querySelector( `#edit-id-${entry.id}` )
             editButton.addEventListener( "click", event => {
-                //console.log( "edit id: ",entry.id )
                 editJournalEntry( entry )
-                //API.deleteJournalEntry( entry )
-                //event.target.parentNode.parentNode.removeChild( event.target.parentNode )
             })
        })
     }
 
-    //
-    API.getJournalEntries( label ).then( data => {
+    if( typeof( label ) === 'string' ) {
+        API.getJournalEntries( label ).then( data => {
         createAndListen( data )
-    })
+        })
+    } else {
+        createAndListen( label )
+    }
 }
 
 export default entriesDOM
