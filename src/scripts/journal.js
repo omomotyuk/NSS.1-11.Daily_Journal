@@ -75,14 +75,19 @@ selectItems().forEach( label => {
     })
 })
 
+//
+const containsValue = ( entry, value ) => {
+    let return_value = false
+    for( const item of Object.values( entry ) ) { if( item.includes( value ) ) return_value = true } 
+    return return_value
+}
+
+//
 document.querySelector( '.search-text' ).addEventListener( "keypress", event => {
     API.getJournalEntries( "" ).then( data => {
-        entriesDOM ( data.filter( entry => entry.content.includes( event.target.value ) ) )
+        entriesDOM( data.filter( entry => containsValue( entry, event.target.value ) ) )
     })
-
 })
-
-
 
 //
 entriesDOM( "" )
