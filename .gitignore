@@ -1,2 +1,5 @@
-api/database.json
-api/entries.json
+package-lock.json
+node_modules/
+dist/
+api/
+.DS_Store
