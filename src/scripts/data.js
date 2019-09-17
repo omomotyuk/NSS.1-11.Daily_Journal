@@ -15,7 +15,6 @@ const API = {
     },
 
     saveJournalEntry: ( entry ) => {
-        //const donutUpdateObject = { name: document.querySelector("#donutName").value }
 
         let query = ""
         if( entry.id ) { query = `/${entry.id}`}

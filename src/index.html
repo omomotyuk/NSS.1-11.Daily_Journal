@@ -22,7 +22,7 @@
         <!-- Date input section -->
         <fieldset class="input-form__fieldset">
             <label class="input">Date of entry:</label>
-            <input class="input" type="date" name="dateOfEntry" id="dateOfEntry" placeholder="2019-09-13">
+            <input class="input" type="date" name="dateOfEntry" id="dateOfEntry">
         </fieldset>
 
         <!-- Covered concepts input section -->
@@ -43,11 +43,11 @@
             <select class="input" id="mood">
                 <!-- 
                 <option value="happy">Happy</option>
-                <option value="fine">Fine</option>
-                <option value="sad">Sad</option>
                 -->
             </select>
         </fieldset>
+
+        <hr/>
 
         <!-- Submit button section -->
         <fieldset class="input-form__fieldset">
@@ -55,14 +55,21 @@
         </fieldset>
         
 <!-- <label class="radio">Filter Journal Entries by Mood:</label>  -->          
-
-        <fieldset class="input-form__fieldset radio-buttons" id="">
-            
-        </fieldset>
+<!-- input-form__fieldset  -->
 
 
     </section>
     <!-- </form> -->
+
+    <section class="control-panel">
+        <fieldset class="radio-buttons" style="width: 40%">
+        </fieldset>
+
+        <fieldset class="search-input" style="width: 40%">
+            <legend>Search Journal Entries</legend>
+            <input type="text" class="search-text" placeholder="Enter search item">
+        </fieldset>
+    </section>
 
     <!-- -->
     <section id="entryLog"></section>
