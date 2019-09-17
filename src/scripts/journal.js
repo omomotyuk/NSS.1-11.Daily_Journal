@@ -44,6 +44,7 @@ const validEntry = ( entry ) => {
 
 //
 selectElement( selectItems() )
+
 //
 moodFilter( selectItems() )
 
@@ -52,9 +53,6 @@ let inputElement = document.querySelector( "#input-form__button" )
 
 inputElement.addEventListener( "click", (event) => {
     let entry = newEntry( getValue('dateOfEntry'), getValue('coveredConcepts'), getValue('journalEntry'), getValue('mood') )
-
-//    console.log( "entry: ", entry )
-
     if( validEntry( entry ) ) { 
         API.saveJournalEntry( entry )
         //sectionElement.innerHTML += createJournalEntryComponent( entry )    
@@ -64,6 +62,15 @@ inputElement.addEventListener( "click", (event) => {
 })
 
 //
-const sectionElement = document.getElementById('entryLog')
-sectionElement.innerHTML = ""
-entriesDOM( sectionElement )
+const radioButtonLabels = selectItems()
+//console.log( "radioButtonLabels:", radioButtonLabels )
+
+radioButtonLabels.forEach( label => {
+    const radioButton = document.querySelector( `#${label.toLowerCase()}` )
+    radioButton.addEventListener( "click", (event) => {
+        entriesDOM( label )
+    })
+})
+
+//
+entriesDOM( "" )
