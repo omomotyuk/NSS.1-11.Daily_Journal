@@ -26,7 +26,7 @@ const entriesDOM = ( label ) => {
             deleteButton.addEventListener( "click", event => {
                 console.log( "entry id: ",entry.id )
                 API.deleteJournalEntry( entry )
-                //createEntriesDOM( data )
+                event.target.parentNode.parentNode.removeChild( event.target.parentNode )
             })
         })
     })
