@@ -5,8 +5,12 @@
 //
 const API = {
 
-    getJournalEntries () {
-        return fetch("http://localhost:3000/entries")
+    getJournalEntries ( label ) {
+
+        let query = ""
+        if( label ) { query = `?mood=${label}`}
+
+        return fetch(`http://localhost:3000/entries${query}`)
             .then(response => response.json())
     },
 

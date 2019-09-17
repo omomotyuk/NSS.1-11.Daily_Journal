@@ -2,12 +2,14 @@
 //
 */
 
-import selectElement from "./select.js"
+import selectItems from "./selectItems.js"
+import selectElement from "./selectElement.js"
 import createJournalEntryComponent from "./entryComponent.js"
 import API from "./data.js"
-import sectionElement from "./entriesDOM.js"
+//import sectionElement from "./entriesDOM.js"
 import validateInputString from "./validateInputString.js"
-
+import moodFilter from "./moodFilter.js"
+import entriesDOM from "./entriesDOM.js"
 //
 /*
 "id": "1",
@@ -41,17 +43,34 @@ const validEntry = ( entry ) => {
 }
 
 //
+selectElement( selectItems() )
+
+//
+moodFilter( selectItems() )
+
+//
 let inputElement = document.querySelector( "#input-form__button" )
 
 inputElement.addEventListener( "click", (event) => {
     let entry = newEntry( getValue('dateOfEntry'), getValue('coveredConcepts'), getValue('journalEntry'), getValue('mood') )
-
-    console.log( "entry: ", entry )
-
     if( validEntry( entry ) ) { 
         API.saveJournalEntry( entry )
-        sectionElement.innerHTML += createJournalEntryComponent( entry )    
+        //sectionElement.innerHTML += createJournalEntryComponent( entry )    
     } else {
         console.log( "input form(s) empty" )
     }
 })
+
+//
+const radioButtonLabels = selectItems()
+//console.log( "radioButtonLabels:", radioButtonLabels )
+
+radioButtonLabels.forEach( label => {
+    const radioButton = document.querySelector( `#${label.toLowerCase()}` )
+    radioButton.addEventListener( "click", (event) => {
+        entriesDOM( label )
+    })
+})
+
+//
+entriesDOM( "" )
