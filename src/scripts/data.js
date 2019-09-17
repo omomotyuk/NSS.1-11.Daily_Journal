@@ -16,7 +16,7 @@ const API = {
 
     saveJournalEntry: ( entry ) => {
         //const donutUpdateObject = { name: document.querySelector("#donutName").value }
-        return fetch(`http://localhost:3000/entries`, {
+        return fetch( `http://localhost:3000/entries`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -24,6 +24,19 @@ const API = {
             body: JSON.stringify( entry )
         })
         .then( response => response.json() )
+    },
+
+    deleteJournalEntry: ( entry ) => {
+
+        let query = ""
+        if( entry.id ) { query = `/${entry.id}`}
+
+        return fetch( `http://localhost:3000/entries${query}`, { 
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
     }
 }
 
