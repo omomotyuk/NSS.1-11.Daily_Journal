@@ -1,6 +1,6 @@
 
 //
-const validCharacters = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789 .,(){}:;-!?"
+const validCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,(){}:;-!?"
 
 //
 const validateInputString = ( string ) => {
