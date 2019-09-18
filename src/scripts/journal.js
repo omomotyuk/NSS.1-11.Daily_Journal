@@ -41,7 +41,7 @@ const validEntry = ( entry ) => {
     return value
 }
 
-//
+// 
 const clearEntryForm = () => {
     editJournalEntry( newEntry( "","","","","" ) )
 }
@@ -67,10 +67,18 @@ inputElement.addEventListener( "click", (event) => {
     }
 })
 
+/*
+//
+const moodId = API.getJournalEntries( "moods" ).then( data => {} )
+*/
+
 //
 selectItems().forEach( label => {
     const radioButton = document.querySelector( `#${label.toLowerCase()}` )
     radioButton.addEventListener( "click", (event) => {
+/*
+
+*/
         entriesDOM( label )
     })
 })
